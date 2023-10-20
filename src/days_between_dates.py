@@ -1,16 +1,14 @@
-from request_user_date import request_final_user_date, request_start_user_date
 from next_day import next_day
 from next_month import next_month
 from next_year import next_year
-def days_between_dates():
-    start_year, start_month, start_day = request_start_user_date()
-    final_year, final_month, final_day = request_final_user_date()
+def days_between_dates(start_year, start_month, start_day, final_year, final_month, final_day):
 
     if [start_year, start_month, start_day] > [final_year, final_month, final_day]:
         raise ValueError("La fecha inicial debe ser anterior o igual a la fecha final")
 
     day, month, year = 0, 0, 0
     start_year_copy, start_month_copy, start_day_copy = start_year, start_month, start_day
+
     while [start_year_copy, start_month_copy, start_day_copy] != [final_year, final_month, final_day]:
         start_year_copy, start_month_copy, start_day_copy = next_day(start_year_copy, start_month_copy, start_day_copy)
 
@@ -22,7 +20,9 @@ def days_between_dates():
         
         day += 1
         
-    return f"total days:{day} \ntotal months:{month} \ntotal years:{year} \nIn clear terms: {year} years and {month%12} months"
+    return day, month, year
 
-print(days_between_dates())
-input("Presiona Enter para salir...")
+if __name__ == "__main__":
+    assert days_between_dates(2000, 2, 29, 2023, 3, 1) == (8401, 276, 23)
+    assert days_between_dates(1954, 2, 28, 2022, 10, 2) == (25053, 823, 68)
+    
