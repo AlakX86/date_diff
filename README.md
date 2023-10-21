@@ -13,7 +13,7 @@ This program consists of 7 modules:
 <h3>is_leap_year</h3>
 The is_leap_year function takes a year argument and returns True if the year is a leap year and False otherwise. A year is a leap year if it is divisible by 4, except if it is divisible by 100 but not by 400.
 <h3>next_year</h3>
-The next_year function takes two arguments, month and day, and returns True if the month is December and the day is 31. In other words, the function checks if the given date is the last day of the year.
+The next_year function determines whether the next day is the first day of the next year. The function takes five arguments: current_month, current_day, first_month, first_day and year. The function checks whether the month of the first day is February and the day of the first day is 29. If so, the function checks whether the current year is a leap year. If it is a leap year, the function checks if the current month is February and if the current day is 29. If the year is not a leap year, the function checks if the current month is February and if the current day is 28. If the current month and the current day are not February and 28 or 29, respectively, the function checks if the current month and the current day are equal to the month and the day of the first day. If so, it returns True. Otherwise, it returns False.
 <h3>days_in_month</h3>
 The code defines a function called days_in_month that takes two arguments, month and year, and returns the number of days in the given month. The function uses a list called days_per_month that contains the number of days per month, and uses the is_leap_year function to determine whether February has 28 or 29 days, depending on whether the year is a leap year or not.
 <h3>next_day</h3>
@@ -26,4 +26,5 @@ The functions prompt the user to enter the year, month and day using the input()
 
 The code defines two functions, request_start_user_date and request_final_user_date, which request the user to enter a start date and an end date in year, month and day format. The functions use the days_in_month function of the days_in_month module to validate that the day entered is within the valid range for the given month and year.
 <h3>days_between_dates</h3>
-The functions prompt the user to enter the year, month and day using the input() function, and validate that the values entered are integers and within the valid range. If the user enters an invalid value, the user is prompted to enter a valid value.
+
+The days_between_dates function calculates the number of days, months and years between two given dates. It takes as arguments the start and end dates in year, month and day format (for readability regardless of the format used in the reader's country, it simply goes chronologically in descending order). The function uses three auxiliary functions next_day, next_month and next_year to calculate the next day, month and year respectively. Then, it uses a while loop to iterate over the days between the two dates and accumulates the number of elapsed days, months and years. Finally, it returns a tuple with the total number of elapsed days, months and years.
