@@ -28,3 +28,6 @@ The code defines two functions, request_start_user_date and request_final_user_d
 <h3>days_between_dates</h3>
 
 The days_between_dates function calculates the number of days, months and years between two given dates. It takes as arguments the start and end dates in year, month and day format (for readability regardless of the format used in the reader's country, it simply goes chronologically in descending order). The function uses three auxiliary functions next_day, next_month and next_year to calculate the next day, month and year respectively. Then, it uses a while loop to iterate over the days between the two dates and accumulates the number of elapsed days, months and years. Finally, it returns a tuple with the total number of elapsed days, months and years.
+
+
+<b>This code is a fork of the days_between_dates code from the Udacity science computing course. Converting it into a code that calculates days, months and years in total. Puedes ver su código de su curso en youtube</b>
